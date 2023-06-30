@@ -1,5 +1,6 @@
 package ar.edu.unlp.pas.product.domain.models;
-import javax.persistence.Entity;
+import javax.persistence.*;
+
 import lombok.Data;
 
 @Data
@@ -16,6 +17,8 @@ public class Address {
     private String city;
     private String province;
     private String country;
+
+
 
 }
 
