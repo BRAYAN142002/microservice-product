@@ -6,11 +6,11 @@ import javax.validation.constraints.NotNull;
 import ar.edu.unlp.pas.product.domain.models.Address;
 import lombok.Data;
 
-@Entity 
+@Entity
 @Table(name="products")
 @Data
 public class ProductEntity {
-    
+
     @Id
     @Column(nullable = false, unique = true, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,5 +32,5 @@ public class ProductEntity {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "address_id")
-    private Address address;
+    private AddressEntity address;
 }

@@ -18,10 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class ProductService implements ProductManager{
+ 
+    private final ProductPersistenceAdapter productOutputPort;
     @Autowired
-    private final ProductOutputPort productOutputPort;
+    public ProductService(ProductPersistenceAdapter productOutputPort) {
+        this.productOutputPort = productOutputPort;
+    }
 
     @Override
     public Product createProduct(Product product) {
