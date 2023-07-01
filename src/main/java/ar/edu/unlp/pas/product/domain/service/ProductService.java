@@ -8,6 +8,7 @@ import ar.edu.unlp.pas.product.application.ports.input.ProductManager;
 
 import ar.edu.unlp.pas.product.application.ports.output.ProductOutputPort;
 import ar.edu.unlp.pas.product.domain.models.Product;
+import ar.edu.unlp.pas.product.infraestructure.adapters.output.persistence.ProductPersistenceAdapter;
 
 import org.springframework.stereotype.Service;
 
