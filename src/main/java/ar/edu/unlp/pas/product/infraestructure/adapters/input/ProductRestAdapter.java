@@ -1,5 +1,15 @@
 package ar.edu.unlp.pas.product.infraestructure.adapters.input;
 
+import ar.edu.unlp.pas.product.domain.models.Product;
+import ar.edu.unlp.pas.product.domain.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/products")
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;

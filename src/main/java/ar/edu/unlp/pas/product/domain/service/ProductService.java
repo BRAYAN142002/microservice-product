@@ -6,9 +6,13 @@ import ar.edu.unlp.pas.product.application.ports.input.ProductManager;
 import ar.edu.unlp.pas.product.application.ports.output.ProductOutputPort;
 import ar.edu.unlp.pas.product.domain.models.Product;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@AllArgsConstructor
+@NoArgsConstructor(force = true)
+@Service
 public class ProductService implements ProductManager{
+    @Autowired
     private final ProductOutputPort productOutputPort;
 
     @Override
@@ -38,16 +42,31 @@ public class ProductService implements ProductManager{
 
     @Override
     public List<Product> findProductsAll() {
-       List<Product> products=new ArrayList<>();
+       List<Product> products;
        products=productOutputPort.findAll();
        return products;
     }
 
     @Override
     public List<Product> find(String name) {
-        List<Product> products=new ArrayList<>();
+        List<Product> products;
         products=productOutputPort.find(name);
         return products;
+    }
+
+    @Override
+    public Product findById(Long id) {
+        return productOutputPort.findById(id);
+    }
+
+    @Override
+    public Product updateProduct(Long id, Product product) {
+       return productOutputPort.update(id, product);
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+        productOutputPort.delete(id);
     }
 
 
