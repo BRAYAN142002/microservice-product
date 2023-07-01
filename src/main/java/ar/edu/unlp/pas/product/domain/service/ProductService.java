@@ -1,19 +1,21 @@
 package ar.edu.unlp.pas.product.domain.service;
 
 import java.util.List;
-import java.util.ArrayList;
+
 import ar.edu.unlp.pas.product.application.ports.input.ProductManager;
-import ar.edu.unlp.pas.product.application.ports.output.ProductOutputPort;
 import ar.edu.unlp.pas.product.domain.models.Product;
-import lombok.*;
+import ar.edu.unlp.pas.product.infraestructure.adapters.output.persistence.ProductPersistenceAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@NoArgsConstructor(force = true)
 @Service
 public class ProductService implements ProductManager{
+
+    private final ProductPersistenceAdapter productOutputPort;
     @Autowired
-    private final ProductOutputPort productOutputPort;
+    public ProductService(ProductPersistenceAdapter productOutputPort) {
+        this.productOutputPort = productOutputPort;
+    }
 
     @Override
     public Product createProduct(Product product) {
