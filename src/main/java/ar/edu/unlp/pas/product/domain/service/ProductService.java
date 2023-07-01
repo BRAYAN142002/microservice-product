@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
@@ -48,15 +50,31 @@ public class ProductService implements ProductManager{
 
     @Override
     public List<Product> findProductsAll() {
-       List<Product> products=new ArrayList<>();
+       List<Product> products;
        products=productOutputPort.findAll();
        return products;
     }
 
     @Override
     public List<Product> find(String name) {
-        List<Product> products=new ArrayList<>();
+        List<Product> products;
         products=productOutputPort.find(name);
         return products;
+    }
+
+
+    @Override
+    public Product findById(Long id) {
+        return productOutputPort.findById(id);
+    }
+
+    @Override
+    public Product updateProduct(Long id, Product product) {
+       return productOutputPort.update(id, product);
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+        productOutputPort.delete(id);
     }
 }

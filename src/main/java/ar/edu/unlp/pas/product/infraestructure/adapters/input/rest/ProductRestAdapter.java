@@ -1,16 +1,15 @@
 package ar.edu.unlp.pas.product.infraestructure.adapters.input.rest;
 
-import javax.validation.Valid;
-
+import ar.edu.unlp.pas.product.domain.models.Product;
+import ar.edu.unlp.pas.product.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import javax.validation.Valid;
 
 import ar.edu.unlp.pas.product.application.ports.input.ProductManager;
 import ar.edu.unlp.pas.product.domain.models.Product;
@@ -42,7 +41,7 @@ public class ProductRestAdapter {
 
         product = productManager.createProduct(product);
 
-        // Domain to response
+        
         return new ResponseEntity<>(productRestMapper.toProductCreateResponse(product), HttpStatus.CREATED);
     }
     

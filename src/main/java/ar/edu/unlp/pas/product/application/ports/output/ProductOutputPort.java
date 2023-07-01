@@ -8,4 +8,6 @@ public interface ProductOutputPort {
      Product update(Long id,Product product);
      List<Product> find(String name);
      List<Product> findAll();
+     Product findById(Long id);
+     void delete(Long id);
 }

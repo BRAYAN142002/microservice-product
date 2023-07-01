@@ -9,6 +9,9 @@ public interface  ProductManager {
     void suspendPublication(Long id);
     List<Product> findProductsAll();
     List<Product> find(String name);
+    Product findById(Long id);
+    Product updateProduct(Long id, Product product);
+    void deleteProduct(Long id);
 
 
 }
