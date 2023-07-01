@@ -3,9 +3,13 @@ package ar.edu.unlp.pas.product.domain.models;
 
 import javax.persistence.Entity;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     private Long id;
 

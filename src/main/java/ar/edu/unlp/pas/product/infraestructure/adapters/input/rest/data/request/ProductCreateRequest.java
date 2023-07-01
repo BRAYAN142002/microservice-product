@@ -5,7 +5,10 @@ import javax.validation.constraints.NotEmpty;
 import lombok.*;
 
 @Builder
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductCreateRequest {
     @NotEmpty(message = "Name may not be empty")
     private String name;
@@ -24,11 +27,7 @@ public class ProductCreateRequest {
 
     @NotEmpty(message = "haouseNumber may not be empty")
     private int houseNumber;
-    @NotEmpty(message = "floornumber may not be empty")
-    private int floorNumber;
-
-    @NotEmpty(message = "departament may not be empty")
-    private String departament;
+    
 
     @NotEmpty(message = "city may not be empty")
     private String city;

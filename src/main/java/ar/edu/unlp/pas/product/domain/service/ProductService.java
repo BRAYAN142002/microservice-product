@@ -1,14 +1,24 @@
 package ar.edu.unlp.pas.product.domain.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
+
 import java.util.ArrayList;
 import ar.edu.unlp.pas.product.application.ports.input.ProductManager;
+
 import ar.edu.unlp.pas.product.application.ports.output.ProductOutputPort;
 import ar.edu.unlp.pas.product.domain.models.Product;
+
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+
 import lombok.*;
 
+@Service
 @AllArgsConstructor
 public class ProductService implements ProductManager{
+    @Autowired
     private final ProductOutputPort productOutputPort;
 
     @Override
@@ -49,6 +59,4 @@ public class ProductService implements ProductManager{
         products=productOutputPort.find(name);
         return products;
     }
-
-
 }

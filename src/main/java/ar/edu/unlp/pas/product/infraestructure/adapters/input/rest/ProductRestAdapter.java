@@ -1,7 +1,8 @@
-package ar.edu.unlp.pas.product.infraestructure.adapters.input;
+package ar.edu.unlp.pas.product.infraestructure.adapters.input.rest;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,9 +29,11 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class ProductRestAdapter {
 
+    @Autowired
     private final ProductManager productManager;
+     @Autowired
     private final ProductRestMapper productRestMapper;
-
+    
      @RequestMapping(method=RequestMethod.POST, produces="application/json")
     @ResponseBody
     public ResponseEntity<ProductCreateResponse> createProduct(@RequestBody @Valid ProductCreateRequest productCreateRequest){
